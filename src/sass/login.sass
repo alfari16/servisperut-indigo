@@ -1,0 +1,91 @@
+.sign-up
+  padding: 40px 0
+  min-height: 100vh
+  .container
+    overflow: hidden
+  .tab
+    ul li
+      float: left
+      width: 50%
+      border: 1px solid #f7f7f7
+      padding: 10px 0
+      border-radius: 0px
+      color: #777
+      cursor: pointer
+      transition: .3s
+      &.active, &:hover
+        background-color: #f5f5f5
+  .slider
+    width: 200%
+    position: relative
+    transition: .3s cubic-bezier(.1,0,.3,1) .3s
+    left: 0
+    &.right
+      left: -100%
+  .sign-up-wrapper
+    padding: 20px 0
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    p
+      color: #999999
+    .navbar-brand
+      display: block
+      margin: 0
+      text-align: center
+      float: none
+      font-size: 28px
+      font-weight: 800
+      padding: 15px 0
+    .logo
+      font-size: 60px
+      color: #42a5f5
+    .signin-title
+      font-size: 18px
+      font-weight: 100
+      margin-bottom: 50px
+    .form-group
+      margin-top: 10px
+      float: left
+      -webkit-width: calc(50% - 15px)
+      width: calc(50% - 15px)
+      opacity: 0
+      transition: .6s cubic-bezier(.1,0,.1,1)
+      &:first-child
+        margin-right: 30px
+      &.active
+        opacity: 1
+    input
+      margin-bottom: 15px
+      height: 50px
+      border-color: transparentize(#42a5f5, .7)
+    .signin-btn
+      background-color: #42a5f5
+      border: none
+      margin-top: 20px
+      color: #fff
+      height: 55px
+      &::before
+        background-color: darken(#42a5f5, 10%)
+    .login-option
+      display: flex
+      justify-content: space-between
+      align-items: center
+    .remember
+      display: flex
+      align-items: center
+      *
+        margin: 0
+      input
+        margin-right: 10px
+        outline: none
+      label
+        font-weight: 100
+@media (min-width:500px)
+  .sign-up
+    .container
+      width: 450px
+@media (max-width:480px)
+  .wrapper
+    width: 100%

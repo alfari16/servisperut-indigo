@@ -1,0 +1,483 @@
+// @import ./bootstrap.min.scss
+// @import ./font-awesome.min.scss
+// @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,800,900')
+
+// @font-face
+//   font-family: 'FontAwesome'
+//   src: url('../fonts/fontawesome-webfont.eot?v=4.7.0')
+//   src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg')
+//   font-weight: normal
+//     font-style: normal
+
+%flex
+  display: flex
+  align-items: center
+%transition
+  transition: .3s cubic-bezier(.1,0,.3,1)
+@mixin size($height, $width)
+  height: $height
+  width: $width
+
+$pr-bl: #42a5f5
+$pr-bl2: #1E88E5
+$pr-bl3: #42A5F5
+$pr--bl: #999999
+$red_color: #FF9800
+
+.btn-body, .btn-body-red
+  color: #fff
+  &:hover
+    color: #fff
+.btn-body
+  background-color: $pr-bl  
+.btn-body-red
+  background-color: $red-color
+body
+  font-family: 'Rubik',helvetica,sans-serif
+a, a:hover
+  text-decoration: none
+  color: inherit
+
+ul, li
+  padding: 0
+  margin: 0
+  list-style: none
+.navbar-brand
+  color: $pr-bl
+  span
+    color: lighten($pr-bl,10%)
+.alert a:not(.close):hover
+  text-decoration: underline
+.btn-material
+  position: relative
+  z-index: 1
+  overflow: hidden
+  &::before
+    content: ''
+    border-radius: 50%
+    @include size(300px,300px)
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%) scale(0)
+    z-index: -1
+    transition: 1s cubic-bezier(0.1,0,0.3,1)
+  &:hover::before
+    transform: translate(-50%,-50%) scale(1)
+// navbar
+nav.navbar.navbar-default
+  background-color: #fff
+  box-shadow: 0 4px 4px transparentize(black, .95)
+  border: none
+  .btn-nav-invers
+    background-color: $pr-bl
+    padding: 5px 10px
+    color: #fff
+    text-transform: uppercase
+    font-weight: 400
+    font-size: 12px
+    margin-right: 15px
+    &:hover
+      background-color: $pr-bl
+      color: #fff
+    &:not(.btn-red)::before
+        background-color: $pr-bl2
+    &.btn-red
+      background-color: $red-color
+      &:before
+        background-color: darken($red-color,5%)
+  .navbar-brand
+    font-weight: 900
+    font-size: 22px
+  .the-link
+    color: #999
+    li:hover
+      color: #333
+  .form-group
+    background: #f4f4f4
+    flex: 1
+    @extend %flex2
+    border-radius: 5px
+    .btn-nav
+      color: #42a5f5
+    > *
+      background-color: transparent
+      border: none
+      box-shadow: none
+.flex-container
+  @extend %flex
+header
+  padding: 60px 0
+  .flex-container
+    position: relative
+    // overflow: hidden
+  .limiter-wrapper,.limiter
+    position: absolute
+    bottom: 0
+  .limiter-wrapper
+    height: 5px
+    width: 44%!important
+    background-color: blue
+  .limiter
+    background-color: $red-color
+    z-index: 99
+    width: 0%
+    opacity: 0
+    height: 100%
+    &.animate
+      animation: aou 4s cubic-bezier(.3,0,.1,1) infinite
+    @keyframes aou
+      from
+        width: 0%
+        opacity: 0
+      5%
+        opacity: 1
+      98%
+        opacity: 1
+      99%
+        width: 100%
+      100%
+        opacity: 0
+  .limiter-wrapper
+    background-color: #eee
+  .text
+    position: relative
+    padding: 0
+    h1
+      position: relative
+      z-index: 2
+      margin-top: 0
+      color: $pr-bl
+      font-weight: 100
+      font-size: 50px
+      line-height: 60px
+    .text-animate
+      position: relative
+      height: 70px
+      margin-top: 0
+      p
+        position: absolute
+        top: 50%
+        transform: translateY(-100%)
+        opacity: 0
+        font-size: 18px
+        font-weight: 100
+        line-height: 30px
+        color: $pr--bl
+        &.animate
+          animation: 16s fading infinite
+        &::before
+          content: '1'  
+          z-index: -99
+          color: #f7f7f7
+          font-size: 320px
+          position: absolute
+          right: -100px
+          font-weight: 600
+        &:nth-child(2)
+          animation-delay: 4s
+          &::before
+            content: '2'
+        &:nth-child(3)
+          animation-delay: 8s
+          &::before
+            content: '3'
+        &:nth-child(4)
+          animation-delay: 12s
+          &::before
+            content: '4'
+        @keyframes fading
+          0%
+            opacity: 0
+          4%
+            opacity: 1
+            transform: translateY(-50%)
+          24%
+            transform: translateY(-50%)
+            opacity: 1
+          25%
+            opacity: 0
+          28%
+            transform: translateY(-80%)
+    .btn-body
+      border-radius: 0
+      background-color: $pr-bl
+      margin-top: 0px
+      color: #ffffff
+      font-weight: 400
+      padding: 10px 30px
+      &::before
+        background-color: $pr-bl2
+  .flex-container
+    > * 
+      width: 50%
+      flex-direction: row
+  .img-wrapper
+    position: relative
+    &::before
+      left: 50%
+      transform: translateX(-50%)
+      top: 105%
+      content: ''
+      border-radius: 50%
+      filter: blur(10px)
+      position: absolute
+      background-color: #999
+      @include size(15px, 95%)
+.product
+  background-color: #f7f7f7
+  padding: 60px 0
+  .popular
+    position: relative
+    span
+      background-color: #f7f7f7
+      color: #999
+      display: inline-block
+      padding-right: 20px
+      position: relative
+      z-index: 2
+      font-style: italic
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 0
+      @include size(1px, 100%)
+      background-color: #ddd
+  figure
+    background-color: white
+    box-shadow: 0 2px 6px transparentize(#888,.8)
+    border-radius: 5px
+    height: 250px
+    margin-bottom: 20px
+    margin-top: 80px
+    @extend %flex
+    flex-direction: column
+    padding: 20px 10px
+    .assets
+      position: relative
+      flex: 1
+      overflow: hidden
+      @extend %flex
+      margin: -80px auto 0 auto
+      border-radius: 10px
+      box-shadow: 0 2px 12px transparentize(#000, .7)
+    .overlay
+      border-radius: 10px
+      position: absolute
+      color: #777
+      @extend %flex
+      justify-content: center
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      background-color: transparentize(#fff,.1)
+      line-height: 26px
+      font-style: italic
+      font-weight: 100
+      padding: 20px
+      text-align: center
+      transition: 1s cubic-bezier(.1,0,.3,1)
+      opacity: 0
+    &:hover
+      .overlay
+        opacity: 1
+    figcaption
+      padding: 0 10px
+      padding-top: 10px
+      marbot
+      width: 100%
+      > *
+        margin: 0
+        padding: 0
+        flex-grow: 1
+      .desc
+        justify-content: space-between
+        @extend %flex
+      h2
+        font-size: 18px
+        color: #555
+        margin: 0
+        text-transform: uppercase
+      .btn-body
+        background: none
+        background-color: $pr-bl
+        color: #fff
+        margin-top: 10px
+        text-transform: uppercase
+        padding: 10px 0
+        font-weight: 500
+        width: 100%
+        &::before
+          background-color: $pr-bl2
+      .price
+        color: $pr-bl
+        font-size: 22px
+        &::before
+          content: 'Rp'
+          display: inline-block
+          vertical-align: top
+          font-size: .6em
+footer
+  padding: 60px 0
+  background: url('../img/footer-bg.JPG') bottom center repeat-x
+  .title-link
+    color: $pr-bl
+    margin-bottom: 15px
+  .link
+    color: #555
+    li
+      margin-bottom: 8px
+      a:hover
+        color: #333
+        text-decoration: underline
+  .copy
+    margin-top: 40px
+    text-align: center
+    color: $pr-bl2
+    padding-top: 20px
+    font-weight: 100
+    font-size: 14px
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:768px)
+  %flex2
+    display: flex
+    align-items: center
+  nav.navbar.navbar-default
+    padding-top: 35px
+    padding-bottom: 5px
+    border: none
+    transition: .3s cubic-bezier(.3,0,.1,1)
+    &.scroll
+      top: -30px  
+    .show-md, .wrapper
+      @extend %flex2
+      justify-content: space-between
+    .show-md > *
+      float: none
+      flex-grow: 1
+    .navbar-right
+      @extend %flex2
+      justify-content: flex-end
+    .form-group
+      background: #f4f4f4
+      flex: 1
+      @extend %flex2
+      border-radius: 5px
+      transition: .3s cubic-bezier(.1,0,.3,1)
+      box-shadow: inset 0 0 6px transparentize(#999, .95)
+      .btn-nav
+        color: #42a5f5
+      > *
+        background-color: transparent
+        border: none
+        box-shadow: none
+      input
+          flex: 1
+      &:hover, & input:focus
+        box-shadow: inset 0 0 6px transparentize(#999, .95), 0 2px 2px transparentize(#999,.8)
+    .the-link
+      position: absolute
+      top: 0
+      left: 0
+      background-color: #f7f7f7
+      padding: 6px 15px
+      width: 100%
+      color: $pr--bl
+      .wrapper
+        margin: 0 auto
+        padding: 0 15px
+        width: 750px
+      ul
+        @extend %flex2
+        li
+          margin: 0 10px
+          &:last-child
+            margin-right: 0
+      .left
+        flex-grow: 1
+  header
+    padding-top: 110px
+    display: flex
+    .flex-container
+      padding: 30px 0
+    .text
+      flex: 1
+      h1
+        width: 80%
+        line-height: 40px
+        font-size: 30px
+      .text-animate 
+        height: 100px
+        p
+          width: 80%
+    .img-wrapper
+      width: 45%
+
+
+@media (min-width:992px)
+  nav.navbar.navbar-default .the-link .wrapper
+    width: 970px
+
+@media (min-width:1200px)
+  nav.navbar.navbar-default .the-link .wrapper
+    width: 1170px
+
+
+@media (min-width:768px) and (max-width:992px)
+  header .flex-container
+    padding: 40px 0
+
+
+@media (max-width:768px)
+  nav.navbar.navbar-default
+    .navbar-brand
+      font-size: 18px
+    .form-group
+      display: flex
+    .navbar-left
+      border: none
+    .the-link
+      line-height: 40px
+    .navbar-right
+      padding: 0 15px
+      .btn-nav-invers
+        width: 100%
+        &:not(.btn-red)
+          margin-bottom: 5px
+  header
+    padding-top: 80px
+    .flex-container 
+      flex-direction: column
+      > *
+        width: 100%
+    .text 
+      h1
+        font-size: 30px
+        text-align: center
+        line-height: 40px
+      .text-animate
+        margin-top: 20px
+        p
+          text-align: center
+          &::before
+            right: 0
+            font-size: 200px
+      .btn-body
+        display: block
+        margin: 30px auto
+  footer
+    .title-link
+      margin-top: 30px
