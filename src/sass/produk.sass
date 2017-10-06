@@ -1,0 +1,223 @@
+@import _variables.sass
+
+%box
+    background-color: #ffffff
+    padding: 20px
+    box-shadow: 0 4px 2px transparentize(#333,.9)
+.produk
+    background-color: #f7f7f7
+    h1.title-header
+        margin-top: 0
+    .center
+        @extend %box
+    .slider-wrapper
+        overflow: hidden
+    .img-slide
+        margin-bottom: 20px
+        overflow: hidden
+        position: relative
+        left: 0
+        @extend %box
+        padding: 0
+        transition: .5s cubic-bezier(.3,0,.1,1), .3s height .1s
+        height: 200px
+        &.open
+            position: static
+            height: 640px
+            figure
+                float: none
+        figure
+            @include size(200px,100%)
+            @extend %flex
+            justify-content: center
+            float: left
+            &:not(:last-child)
+                margin-bottom: 10px
+            img
+                height: 100%
+                width: auto
+                cursor: pointer
+                border: 2px solid #fff
+                transition: .3s cubic-bezier(.3,0,.1,1)
+                &:hover
+                    border: 2px solid $red-color
+    .penjual
+        width: 100%
+        @extend %flex
+        align-items: flex-start
+        padding: 10px 20px
+        border-radius: 5px
+        flex-wrap: wrap
+        background-color: $pr-bl
+        figure
+            @include size(80px,80px)
+            padding: 10px
+            background-color: lighten($pr-bl,10%)
+            margin-right: 20px
+            border-radius: 50%
+            @extend %flex
+        figcaption
+            flex: 1
+        .warung-name
+            margin-top: 0
+            color: $pr-bl
+            font-size: 19px
+            margin-bottom: 5px
+            color: #fff
+        .status
+            color: #eee
+            font-weight: 100
+            font-style: italic
+            line-height: 18px
+            display: inline-block
+        .rating 
+            margin-top: 0px
+            li
+                float: left
+                margin-right: 5px
+                color: transparentize(#fff,.7)
+                font-size: 21px
+                &.colored
+                    color: #FFC107
+    .table
+        color: darken(#FFC107,10%)
+    .buy-wrap
+        margin-bottom: 20px
+        .price-wrap 
+            border: 1px solid $red-color
+            padding: 5px 20px
+            .price
+                font-size: 32px
+                margin: 0
+                padding: 10px
+                color: $red-color
+        .btn
+            background-color: $red-color
+            border-radius: 0
+            width: 100%
+            font-size: 18px
+            &::before
+                background-color: darken($red-color,5%)
+    .title
+        font-size: 22px
+        color: $pr-bl
+    .desc
+        color: $pr--bl
+        line-height: 25px
+        background-color: #f9f9f9
+        padding: 20px
+        margin: 0 -20px
+    .review
+        margin-top: 20px
+        textarea
+            height: 40px
+            transition: .3s
+            &:focus
+                height: 120px
+        .btn
+            margin-top: 20px
+            &::before
+                background-color: $pr-bl2
+    .the-comment
+        li
+            @extend %flex
+            align-items: flex-start
+            margin: 0 -20px
+            margin-bottom: 10px
+            padding: 5px 20px
+            figure
+                border-radius: 50%
+                margin-top: 5px
+                @include size(50px,50px)
+                @extend %flex
+                overflow: hidden
+                margin-right: 20px
+                img
+                    min-height: 100%
+            figcaption
+                flex: 1
+            .user
+                font-size: 18px
+                margin-bottom: 3px
+            .comment
+                color: $pr--bl
+            &:nth-child(2n)
+                background-color: #f7f7f7
+    .lightbox 
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background-color: transparentize(#000,.7)
+        z-index: 99999
+        opacity: 0
+        &:not(.hidden)
+            animation: api .3s forwards
+        @keyframes api
+            from
+                opacity: 0
+            to
+                opacity: 1
+        figure
+            padding: 20px
+            background-color: white
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 80%
+            height: 80%
+            transform: translate(-50%,-50%)
+            @extend %flex
+            justify-content: center
+            overflow: hidden
+            animation: .3s ida
+            .closed
+                position: absolute
+                right: -10px
+                top: -10px
+                z-index: 99
+                @include size(50px,50px)
+                background-color: #eee
+                border-radius: 50%
+                @extend %flex
+                justify-content: center
+                font-size: 22px
+                color: #777777
+                cursor: pointer
+                box-shadow: 0 2px 2px transparentize(#333,.6)
+            @keyframes ida
+                from, 80%
+                    width: 30%
+                    height: 30%
+                to
+                    width: 80%
+                    height: 80%
+        img
+            height: 100%
+            width: auto
+            opacity: 0
+            animation: .3s lala .5s forwards
+            @keyframes lala
+                from
+                    opacity: 0
+                to
+                    opacity: 1
+    .wrapper-all
+        transition: .3s .3s
+        &.blur
+            filter: blur(5px)
+
+
+@media (max-width:768px)
+    .produk
+        h2.title-header
+            font-size: 25px
+        .breadcrumb
+            font-size: 12px
+        .lightbox 
+            figure
+                height: auto
+                img
+                    width: 100%
+                    height: auto
