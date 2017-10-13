@@ -72,6 +72,34 @@ nav.navbar.navbar-default
   background-color: #fff
   box-shadow: 0 4px 4px transparentize(black, .95)
   border: none
+  &.logged-in
+    .user-icon  
+      position: relative
+      > a
+        @extend %flex
+      .user-img-wrapper
+        @include size(40px,40px)
+        border-radius: 50%
+        overflow: hidden
+        background-color: white
+        @extend %flex
+        margin-right: 10px
+      figcaption
+        font-weight: 700
+        color: #555
+      .floating
+        transition: .3s opacity .3s
+        opacity: 0
+        display: none
+        background-color: white
+        padding: 10px
+        box-shadow: 0 2px 2px transparentize(#888, .8)
+        border-radius: 3px
+        .btn
+          width: 100%
+          &:not(:last-child)
+            margin-bottom: 10px
+
   .btn-nav-invers
     background-color: $pr-bl
     padding: 5px 10px
@@ -325,6 +353,10 @@ header
 footer
   padding: 60px 0
   background: url('../img/footer-bg.JPG') bottom center repeat-x
+  background-color: white
+  margin-top: 30px
+  .desc
+    background-color: white!important
   .title-link
     color: $pr-bl
     margin-bottom: 15px
@@ -439,9 +471,26 @@ footer
 
 
 @media (min-width:992px)
-  nav.navbar.navbar-default .the-link .wrapper
-    width: 970px
-
+  nav.navbar.navbar-default 
+    .the-link .wrapper
+      width: 970px
+    &.logged-in
+      .nav.navbar-nav.navbar-right
+        margin-right: 0
+        .user-icon:hover .floating
+          animation: .3s budi .1s forwards
+          display: block
+          @keyframes budi
+            from
+              opacity: 0
+              transform: translateY(-10px)
+            to
+              opacity: 1
+              transform: translateY(0)
+        .floating
+          position: absolute
+          top: 100%
+          right: 0
 @media (min-width:1200px)
   nav.navbar.navbar-default .the-link .wrapper
     width: 1170px
@@ -452,7 +501,7 @@ footer
     padding: 40px 0
 
 
-@media (max-width:769px)
+@media (max-width:768px)
   nav.navbar.navbar-default
     + *
       padding-top: 80px
@@ -470,6 +519,16 @@ footer
         width: 100%
         &:not(.btn-red)
           margin-bottom: 5px
+    &.logged-in .user-icon 
+      > a
+        justify-content: space-between
+      .floating
+        position: relative
+        display: block
+        opacity: 1
+        padding: 0
+        box-shadow: none
+        margin-top: 10px
   header
     .flex-container 
       flex-direction: column

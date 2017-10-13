@@ -36,8 +36,8 @@
               <div class="form-group active">
                 <p class="signin-title">Masuk ke akun anda</p
           			<form action="#" method="post">
-          				<input type="text" name="username" class="form-control" placeholder="Username">
-          				<input type="password" name="" class="form-control" placeholder="Password">
+          				<input type="text" name="username" class="form-control" placeholder="Username" required>
+          				<input type="password" name="" class="form-control" placeholder="Password" required>
           				<button type="submit" class="btn btn-material form-control signin-btn">MASUK</button>
           				<p class="login-option">
           					<span class="remember">
@@ -55,17 +55,17 @@
           			<form action="#" method="post">
           				<div class="row">
           				  <div class="col-md-6">
-          				    <input type="text" name="first" class="form-control" placeholder="Nama depan">
+          				    <input required type="text" name="first" class="form-control" placeholder="Nama depan">
           				  </div>
           				  <div class="col-md-6">
-          				    <input type="text" name="last" class="form-control" placeholder="Nama Belakang">
+          				    <input required type="text" name="last" class="form-control" placeholder="Nama Belakang">
           				  </div>
           				</div>
-          				<input type="email" name="email" class="form-control" placeholder="E-Mail">
-          				<input type="password" name="" class="form-control" placeholder="Password">
-          				<input type="password" name="" class="form-control" placeholder="Ulangi Password">
+          				<input required type="email" name="email" class="form-control" placeholder="E-Mail">
+          				<input required type="password" name="" class="form-control" placeholder="Password">
+          				<input required type="password" name="" class="form-control" placeholder="Ulangi Password">
                   <span class="remember">
-                    <input type="checkbox" name="" value="">
+                    <input required type="checkbox" name="" value="">
                     <p class="text-left">Saya setuju dan telah membaca <a href="#" class="text-primary">Syarat</a> &amp; <a href="#" class="text-primary">Ketentuan </a>yang ada.</p>
                   </span>
           				<button type="submit" class="btn btn-material form-control signin-btn">DAFTAR</button>
