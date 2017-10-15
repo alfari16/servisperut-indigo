@@ -89,7 +89,18 @@ $(document).ready(function() {
       }
     });
   }
-  
+  $('.pesan input, .pesan textarea').focus(function(){
+    $(this).addClass('focus');
+  }).blur(function(){
+    if($(this).val()===''){
+      $(this).removeClass('focus');
+    }
+  });
+  $('[data-toggle="tooltip"]').tooltip();
+  $('.h2-title').click(function(){
+    $(this).closest('.form-pemesanan').addClass('exit');
+    console.log("enteire");
+  });
 }).scroll(function(){
   var wScroll = $(this).scrollTop();
   var navbar = $('.navbar.navbar-default');

@@ -14,6 +14,10 @@
   align-items: center
 %transition
   transition: .3s cubic-bezier(.1,0,.3,1)
+%box
+    background-color: #ffffff
+    padding: 20px
+    box-shadow: 0 4px 2px transparentize(#333,.9)  
 @mixin size($height, $width)
   height: $height
   width: $width
@@ -256,6 +260,114 @@ header
       position: absolute
       background-color: #999
       @include size(15px, 95%)
+.order
+  .list
+    background-color: #fff
+    box-shadow: 0 2px 19px transparentize(#333,.9)      
+    border-radius: 10px
+    height: 400px
+    @extend %box
+    background-color: white
+    -webkit-user-select: none
+    -moz-user-select: none
+    -o-user-select: none
+    user-select: none
+    ul
+      @extend %flex
+      flex-direction: column
+      justify-content: space-between
+      height: 100%
+      counter-reset: budi
+      position: relative
+      z-index: 1
+      li
+        @extend %flex
+        justify-content: center
+        font-size: 18px
+        text-transform: uppercase
+        color: $pr-bl
+        @include size(60px,60px)
+        margin: 0 40px
+        border-radius: 50%
+        color: $pr--bl
+        font-size: 22px
+        background-color: #eee
+        position: relative
+        transition: .3s
+        &.active
+          background-color: $pr-bl
+          color: white
+        &:not(:last-child)::before
+          content: ''
+          position: absolute
+          top: 100%
+          left: 50%
+          transform: translateX(-50%)
+          @include size(100%,1px)
+          background-color: #eee
+        &.active:not(:last-child)::before
+          background-color: $pr-bl
+  form
+    min-height: 347px
+    form
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+  .h2-title
+    margin: 0
+    margin-bottom: 20px
+    color: #666
+  .desc-pesanan
+    font-weight: 200
+    a
+      color: $pr-bl2
+  .form-group
+    position: relative
+    input, label, textarea
+      transition: .3s
+    input
+      height: 50px
+      + label
+        top: 50%      
+        transform: translateY(-50%)
+    label
+      position: absolute
+      left: 20px
+      color: #ccc
+      font-weight: 400
+      font-size: 14px
+    &.text-area
+      label
+        top: 13px
+      textarea
+        resize: vertical
+        height: 120px
+    textarea.focus, input.focus 
+      margin-top: 40px
+      + label
+        top: -20px
+        left: 0
+        font-size: 12px
+        color: $pr--bl
+    textarea.focus + label
+        top: -26px
+  .form-pemesanan
+    background-color: white
+    position: absolute
+    z-index: 3
+    transform-origin: top left
+    width: 100%
+    animation: kel .3s ease forwards 
+    &.exit
+      @keyframes kel
+        from
+          transform: rotate(0)
+        30%
+          transform: rotate(40deg)
+        90%
+          top: 800px
+        100%
+          // display: none
 .product
   background-color: #f7f7f7
   padding: 60px 0
@@ -492,6 +604,8 @@ footer
           position: absolute
           top: 100%
           right: 0
+  .list
+    width: 100px
 @media (min-width:1200px)
   nav.navbar.navbar-default .the-link .wrapper
     width: 1170px
