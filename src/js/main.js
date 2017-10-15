@@ -103,9 +103,9 @@ $(document).ready(function() {
     $(this).closest('.form-pemesanan').addClass('exit');
     console.log("enteire");
   });
-  
-  
-  
+
+
+
   // order
   fitForm();
   var orderCount=0;
@@ -124,15 +124,8 @@ $(document).ready(function() {
       }
     });
     if(kondisi){
-      formWrapper.find('.active').slideToggle(600);
       orderCount++;
-      formWrapper.find('.form-pemesanan').removeClass('active').eq(orderCount).addClass('active');
-      $('.order .list li').each(function () {
-        var $this = $(this);
-        if ($this.index() <= orderCount) {
-          $this.addClass('active');
-        }
-      });
+      geser(orderCount);
     }
   });
 }).scroll(function(){
@@ -162,5 +155,21 @@ function lightbox(){
 }
 function fitForm(){
   formWrapper.css('minHeight', formWrapper.find('.active').innerHeight());
-  alert("hai");
+}
+function geser(orderCount) {
+  formWrapper.find('.form-pemesanan').removeClass('active').eq(orderCount).addClass('active').delay(10).queue(function(){
+    fitForm();
+    $(this).dequeue();
+  });
+  $('.order .list li').each(function () {
+    var $this = $(this);
+    if ($this.index() <= orderCount) {
+      $this.addClass('active');
+    }
+  });
+  $('.form-pemesanan').each(function(){
+    if($(this).index()<orderCount){
+      $(this).addClass('animate-it');
+    }
+  });
 }
