@@ -9,6 +9,7 @@
     <meta name="keywords" content="makan, chatering online, rumah chatering">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900">
     <link rel="stylesheet" href="css/servisperut.min.css">
   </head>
@@ -69,43 +70,83 @@
             <div class="col-md-2">
               <div class="list">
                 <ul>
-                  <li class="active"><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">1</a></li>
-                  <li class=""><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">2</a></li>
+                  <li class="callback active"><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">1</a></li>
+                  <li class="callback "><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">2</a></li>
                   <li class=""><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">3</a></li>
-                  <li class=""><a href="#" data-toggle="tooltip" data-placement="right" title="Pemesanan">4</a></li>
                 </ul>
               </div>
             </div>
-            <div class="col-md-10">
-              <div class="form-pemesanan">
-                <div class="box">
-                  <h2 class="h2-title">Pemesanan</h2>
-                  <div class="alert alert-warning">
-                    <p class="desc-pesanan">Anda telah memesan
-                      <a href="#">Katring warung mak par.</a>
-                    </p>
+            <div class="col-md-9">
+              <div class="form-wrapper">
+                <div class="form-pemesanan active">
+                  <div class="box">
+                    <h2 class="h2-title">Pemesanan</h2>
+                    <div class="alert alert-warning">
+                      <p class="desc-pesanan">Anda telah memesan
+                        <a href="#">Katring warung mak par.</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="box">
+                    <form action="" class="pesan">
+                      <div class="main-form">
+                        <div class="form-group">
+                          <input required id="alamat" type="text" class="form-control">
+                          <label for="alamat">Alamat lengkap anda</label>
+                        </div>
+                        <div class="form-group">
+                          <input required id="jml" type="number" class="form-control">
+                          <label for="jml">Jumlah pesanan</label>
+                        </div>
+                        <div class="form-group text-area">
+                          <textarea required name="" id="" class="form-control"></textarea>
+                          <label for="alamat">Keterangan Tambahan</label>
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <button class="btn btn-lg btn-body btn-next-order">Next</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
-                <div class="box">
-                  <form action="" class="pesan">
-                    <div class="main-form">
-                      <div class="form-group">
-                        <input required id="alamat" type="text" class="form-control">
-                        <label for="alamat">Alamat lengkap anda</label>
-                      </div>
-                      <div class="form-group">
-                        <input required id="jml" type="number" class="form-control">
-                        <label for="jml">Jumlah pesanan</label>
-                      </div>
-                      <div class="form-group text-area">
-                        <textarea required name="" id="" class="form-control"></textarea>
-                        <label for="alamat">Keterangan Tambahan</label>
-                      </div>
+                <div class="form-pemesanan">
+                  <div class="box">
+                    <h2 class="h2-title">Kontak Anda</h2>
+                    <div class="alert alert-warning">
+                      <p class="desc-pesanan">Anda telah memesan
+                        <a href="#">Katring warung mak par.</a>
+                      </p>
                     </div>
-                    <div class="text-right">
-                      <button class="btn btn-lg btn-body">Next</button>
+                  </div>
+                  <div class="box">
+                    <form action="" class="pesan">
+                      <div class="main-form">
+                        <div class="form-group">
+                          <input required id="alamat" type="email" class="form-control">
+                          <label for="alamat">Nama lengkap</label>
+                        </div>
+                        <div class="form-group">
+                          <input required id="alamat" type="email" class="form-control">
+                          <label for="alamat">Alamat e-mail</label>
+                        </div>
+                        <div class="form-group">
+                          <input required id="jml" type="text" class="form-control">
+                          <label for="jml">No. Telepon</label>
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <button class="btn btn-lg btn-body btn-next-order">Next</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="form-pemesanan">
+                  <div class="box">
+                    <h2 class="h2-title text-center"><i class="fa fa-check"></i>  Selesai</h2>
+                    <div class="text-center">
+                      <a href="index.html" class="btn btn-md btn-body btn-material"><i class="fa fa-home"></i> Back to home</a>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

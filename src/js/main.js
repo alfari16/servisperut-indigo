@@ -7,6 +7,7 @@ var wWith = windows.width();
 var body = $('body');
 var a;
 var counter = 0;
+var formWrapper = $('.form-wrapper');
 
 function move() {
   if(idx === 2){
@@ -22,7 +23,6 @@ function move() {
     slider.removeClass('right');
   }
 }
-
 $(document).ready(function() {
   loginTab.click(function() {
     idx=$(this).index();
@@ -91,15 +91,49 @@ $(document).ready(function() {
   }
   $('.pesan input, .pesan textarea').focus(function(){
     $(this).addClass('focus');
-  }).blur(function(){
-    if($(this).val()===''){
-      $(this).removeClass('focus');
+  });
+  $('.pesan input').blur(function(){
+    var $this = $(this);
+    if($this.val()===''){
+      $this.removeClass('focus');
     }
   });
   $('[data-toggle="tooltip"]').tooltip();
   $('.h2-title').click(function(){
     $(this).closest('.form-pemesanan').addClass('exit');
     console.log("enteire");
+  });
+  
+  
+  
+  // order
+  fitForm();
+  var orderCount=0;
+  $('.btn-next-order').click(function(e){
+    e.preventDefault();
+    fitForm();
+    var kondisi=true;
+    formWrapper.find('.active input').each(function(){
+      var $this = $(this);
+      if($this.val()===''){
+        $this.removeClass('animated shake red').delay(10).queue(function () {
+          $this.addClass('animated shake red');
+          $(this).dequeue();
+        });
+        kondisi=false;
+      }
+    });
+    if(kondisi){
+      formWrapper.find('.active').slideToggle(600);
+      orderCount++;
+      formWrapper.find('.form-pemesanan').removeClass('active').eq(orderCount).addClass('active');
+      $('.order .list li').each(function () {
+        var $this = $(this);
+        if ($this.index() <= orderCount) {
+          $this.addClass('active');
+        }
+      });
+    }
   });
 }).scroll(function(){
   var wScroll = $(this).scrollTop();
@@ -125,4 +159,8 @@ function slide(){
 function lightbox(){
   $('.lightbox').toggleClass('hidden');
   $('.wrapper-all').toggleClass('blur');
+}
+function fitForm(){
+  formWrapper.css('minHeight', formWrapper.find('.active').innerHeight());
+  alert("hai");
 }

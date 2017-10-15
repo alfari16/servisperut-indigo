@@ -261,6 +261,8 @@ header
       background-color: #999
       @include size(15px, 95%)
 .order
+  .form-wrapper
+    transition: .3s
   .list
     background-color: #fff
     box-shadow: 0 2px 19px transparentize(#333,.9)      
@@ -303,16 +305,10 @@ header
           top: 100%
           left: 50%
           transform: translateX(-50%)
-          @include size(100%,1px)
+          @include size(150%,1px)
           background-color: #eee
         &.active:not(:last-child)::before
           background-color: $pr-bl
-  form
-    min-height: 347px
-    form
-      display: flex
-      flex-direction: column
-      justify-content: space-between
   .h2-title
     margin: 0
     margin-bottom: 20px
@@ -351,23 +347,21 @@ header
         color: $pr--bl
     textarea.focus + label
         top: -26px
+    input.red, textarea.red
+      border: 2px solid red
   .form-pemesanan
     background-color: white
+    border-radius: 5px
+    padding: 20px 30px
+    box-shadow: 0 2px 12px transparentize(#888,.8)
     position: absolute
-    z-index: 3
-    transform-origin: top left
     width: 100%
-    animation: kel .3s ease forwards 
-    &.exit
-      @keyframes kel
-        from
-          transform: rotate(0)
-        30%
-          transform: rotate(40deg)
-        90%
-          top: 800px
-        100%
-          // display: none
+    @for $i from 1 through 3
+      &:nth-child(#{$i})
+        $var: 3 - $i
+        z-index: $var
+  .btn-next-order
+    margin-top: 30px
 .product
   background-color: #f7f7f7
   padding: 60px 0
@@ -485,7 +479,7 @@ footer
     text-align: center
     color: $pr-bl2
     padding-top: 20px
-    font-weight: 100
+    font-weight: 400
     font-size: 14px
   .title-desc
     margin-top: 0
@@ -585,8 +579,10 @@ footer
 
 @media (min-width:992px)
   nav.navbar.navbar-default 
-    .the-link .wrapper
-      width: 970px
+    .the-link 
+      font-size: 12px
+      .wrapper
+        width: 970px
     &.logged-in
       .nav.navbar-nav.navbar-right
         margin-right: 0
@@ -606,6 +602,7 @@ footer
           right: 0
   .list
     width: 100px
+    float: right
 @media (min-width:1200px)
   nav.navbar.navbar-default .the-link .wrapper
     width: 1170px
