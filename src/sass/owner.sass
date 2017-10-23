@@ -1,0 +1,77 @@
+@import '_variables'
+%flex
+    display: flex
+    align-items: center
+.owner
+    h1.detail-name
+        color: #555
+        margin-top: 0
+    .rating
+        color: $pr--bl
+        margin-bottom: 10px
+        display: block
+        i
+            color: $red-color
+            display: inline-block
+            margin-right: 2px
+    .header-content
+        box-shadow: 0 2px 2px transparentize(black,.9)
+        padding: 10px 20px
+        border-radius: 5px
+    p.own-desc
+        color: #777
+        line-height: 25px
+    // .produk-wrapper
+    //     @extend %flex
+    //     justify-content: space-between
+    .single-produk
+        width: 48%
+        @extend %flex
+        border: 1px solid $pr--bl
+        border-radius: 5px
+        overflow: hidden
+        padding: 5px
+        height: 140px
+        figure.produk-img
+            @extend %flex
+            width: 120px
+            margin-right: 10px
+            height: 98%
+            overflow: hidden
+            justify-content: center
+            border-radius: 5px
+            img
+                height: 100%
+                width: auto
+        figcaption
+            flex: 1
+            h2
+                margin-top: 0
+                font-size: 20px
+                color: $pr-bl
+            p
+                color: $pr--bl
+                font-size: 12px
+    .product    
+        padding: 20px 0
+        margin-top: 20px
+        background-color: white
+        figure
+            height: 200px
+    .item-divider
+        position: relative
+        span
+            color: $pr--bl
+            font-style: italic
+            background-color: white
+            display: inline-block
+            padding-right: 20px
+            z-index: 99
+            position: relative
+        &::before
+            content: ''
+            position: absolute
+            @include size(1px,100%)
+            top: 50%
+            transform: translateY(-50%)
+            background-color: $pr--bl
