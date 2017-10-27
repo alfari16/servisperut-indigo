@@ -14,10 +14,6 @@
             color: $red-color
             display: inline-block
             margin-right: 2px
-    .header-content
-        box-shadow: 0 2px 2px transparentize(black,.9)
-        padding: 10px 20px
-        border-radius: 5px
     p.own-desc
         color: #777
         line-height: 25px
@@ -75,3 +71,22 @@
             top: 50%
             transform: translateY(-50%)
             background-color: $pr--bl
+
+@media (min-width:992px)            
+    .header-content
+        box-shadow: 0 2px 2px transparentize(black,.9)
+        padding: 10px 20px
+        border-radius: 5px
+
+@media (max-width:768px)            
+    .owner
+        .owner-img
+            margin-bottom: 0
+            border-radius: 50%
+    .row-header
+        display: flex
+        align-items: center    
+@media (max-width:480px)        
+    .owner
+        h1.detail-name
+            font-size: 25px
