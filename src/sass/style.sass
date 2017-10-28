@@ -504,10 +504,70 @@ footer
 .owner
   .flex-wrap
     @extend %flex
-
-
-
-
+.in404
+  height: 100vh
+  background: url('../img/footer-bg.JPG') bottom center repeat-x
+  p, img
+    margin: 0
+  , .in404 *
+    margin: 0
+    padding: 0
+  .flex-wrap
+    padding: 0 120px
+    -webkit-height: calc(100vh - 80px)
+    height: calc(100vh - 80px)
+    box-sizing: border-box
+    @extend %flex
+    width: 100%
+  .left
+    width: 40%
+  .right
+    width: 60%
+  .fw-inner
+    padding: 0
+    align-items: flex-start
+    height: auto
+  figure.logo-404
+    height: 290px
+    padding: 0
+    margin: 0
+    margin-left: 100px
+    position: relative
+    width: 600px
+    max-width: 100%
+    overflow: hidden
+    &::before
+      content: ''
+      @include size(5px,100%)
+      bottom: 62px
+      left: 0
+      background-color: #d2d4d8
+      position: absolute
+    img
+      height: 100%
+      width: auto
+      position: absolute
+      animation: 12s iya infinite linear
+      @keyframes iya
+        from
+          left: -100%
+        to
+          left: 100%
+  .header-404
+    font-size: 150px
+    font-weight: 900
+    background: #11998e
+    background: -webkit-linear-gradient(180deg, #38ef7d, #11998e)  
+    background: linear-gradient(180deg, #38ef7d, #11998e) 
+    background-clip: text
+    -webkit-background-clip: text
+    -webkit-background-clip: -webkit-text
+    color: transparent
+    filter: drop-shadow(0 4px 0px darken(#11998e,5%))
+  p.wops
+    color: #11998e
+    font-size: 20px
+  
 
 
 
@@ -592,6 +652,17 @@ footer
       width: 45%
 
 
+@media (max-width:992px)
+  .in404
+    .flex-wrap.fw-inner
+      align-items: center
+      flex-direction: column
+      .left,.right
+        width: 100%
+      .left p
+        text-align: center!important
+      figure.logo-404
+        margin-left: 0
 @media (min-width:992px)
   nav.navbar.navbar-default
     .the-link
@@ -695,3 +766,11 @@ footer
             top: 50%
             left: 100%
             transform: translateY(-50%)                        
+  .in404
+    .fw-hd
+      padding: 15px
+    .left 
+      p.header-404
+        font-size: 100px
+      p.wops
+        line-height: 30px
