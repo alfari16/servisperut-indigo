@@ -173,3 +173,21 @@ function geser(orderCount) {
     }
   });
 }
+$('.btn-dcr').click(function(){
+  var jml = $('.jml-pesanan').val();
+  if(jml>10){
+    $('.jml-pesanan').val(jml-=10);
+    $('.jml-pesanan').trigger('keyup');
+  }
+});
+$('.btn-incr').click(function(){
+  var jml = parseInt($('.jml-pesanan').val());
+  $('.jml-pesanan').val(jml+=10);
+  $('.jml-pesanan').trigger('keyup');
+});
+$('.jml-pesanan').keyup(function(e){
+  $('.price-total').text(
+    parseInt($(e.target).val())*parseInt($('.price-ori').text()
+  ));
+  console.log(parseInt($(e.target).val()));
+});
