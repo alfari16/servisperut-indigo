@@ -104,7 +104,11 @@ nav.navbar.navbar-default
           width: 100%
           &:not(:last-child)
             margin-bottom: 10px
-
+        .divider
+          height: 1px
+          width: 100%
+          margin-bottom: 10px
+          background-color: transparentize($pr-bl,.8)
   .btn-nav-invers
     background-color: $pr-bl
     padding: 5px 10px
@@ -446,6 +450,11 @@ header
       .desc
         justify-content: space-between
         @extend %flex
+        .price
+          max-width: 40%
+          margin-left: 10px
+        h2
+          flex: 1
       h2
         font-size: 18px
         color: #555
@@ -504,6 +513,11 @@ footer
 .owner
   .flex-wrap
     @extend %flex
+  .desc
+    flex-direction: column
+    align-items: flex-start!important
+    h2
+      margin-bottom: 5px 0
 .in404
   height: 100vh
   background: url('../img/footer-bg.JPG') bottom center repeat-x
@@ -617,13 +631,19 @@ footer
   .input-wrap
     flex: 1
   .jml-pesanan
-    border: 1px solid $pr-bl
     text-align: center
     font-size: 18px
     color: $pr-bl2
     font-weight: 600
     border-radius: 0
+  input
     height: 40px
+  input,textarea
+    border: 1px solid $pr-bl
+  textarea
+    height: 100px
+  p.identitas
+    margin-bottom: 20px
   .flex-wrap
     @extend %flex
   .title-header
@@ -659,13 +679,50 @@ footer
     height: 50px
     box-shadow: 0 2px 2px transparentize(#000,.8)
     text-transform: uppercase
+.cari
+  .item
+    @extend %flex
+    padding-bottom: 20px
+    margin-bottom: 20px
+    border-bottom: 1px solid transparentize($pr-bl,.8)
+  .cari-img-wrap
+    @include size(100px, 150px)
+    background-color: red
+    overflow: hidden
+    @extend %flex
+    justify-content: center
+    border-radius: 5px
+    margin-right: 15px
+    img
+      @include size(auto,100%)
+  .cari-desc-wrap
+    flex: 1
+    p.desc
+      line-height: 26px
+    h2
+      font-size: 20px
+      color: $pr-bl
+  .cari-btn-wrap
+    span.price
+      display: block
+      text-align: center
+      margin-bottom: 10px
 .bayar
+  counter-reset: trans
   .flex-wrap  
     justify-content: space-between
   p.menu-title
     color: darken($red-color,5%)
     font-size: 18px
-    // font-weight: 100
+  .item-transaksi
+    margin-bottom: 30px
+    &::before
+      content: 'Transaksi #'counter(trans)
+      counter-increment: trans
+      display: inline-block
+      width: 100%
+      background-color: red
+
   .sum
     padding-top: 20px
     border-top: 1px solid #999
@@ -846,6 +903,14 @@ footer
   .bayar
     .container
       width: 600px
+    .item-transaksi::before
+      content: 'Transaksi #'counter(trans)
+      counter-increment: trans
+      display: block
+      width: 600px
+      margin: 0 auto
+      background-color: #eee
+      padding: 8px 40px
 @media (min-width:1200px)
   nav.navbar.navbar-default .the-link .wrapper
     width: 1170px
