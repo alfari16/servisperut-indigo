@@ -189,7 +189,7 @@ $('.btn-incr').click(function(){
   $('.jml-pesanan').trigger('keyup');
 });
 $('.jml-pesanan').keyup(function(e){
-  var jml = parseInt($('.jml-pesanan').val());
+  var jml = Math.abs(parseInt($('.jml-pesanan').val()));
   if(e.which!==45){
     $('.price-total').text(
       parseInt($(e.target).val()) * parseInt($('.price-ori').text())
