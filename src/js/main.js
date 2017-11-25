@@ -24,6 +24,9 @@ function move() {
   }
 }
 $(document).ready(function() {
+  $('.price-total').text(
+    parseInt($('.price-ori').text())*parseInt($('.jml-pesanan').val())
+  );
   loginTab.click(function() {
     idx=$(this).index();
     move();
@@ -186,8 +189,12 @@ $('.btn-incr').click(function(){
   $('.jml-pesanan').trigger('keyup');
 });
 $('.jml-pesanan').keyup(function(e){
-  $('.price-total').text(
-    parseInt($(e.target).val())*parseInt($('.price-ori').text()
-  ));
-  console.log(parseInt($(e.target).val()));
+  var jml = parseInt($('.jml-pesanan').val());
+  if(e.which!==45){
+    $('.price-total').text(
+      parseInt($(e.target).val()) * parseInt($('.price-ori').text())
+    );
+  }else{
+    $('.jml-pesanan').val(jml);
+  }
 });
